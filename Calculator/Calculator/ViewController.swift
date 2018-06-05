@@ -31,10 +31,55 @@ class ViewController: UIViewController {
             isInTheMiddleOfTypingNumber = true
         }
     }
-    @IBAction func enter(_ sender: UIButton) {
+    var operandStack = [Double]()
+    @IBAction func enter() {
         isInTheMiddleOfTypingNumber = false
+        operandStack.append(displayValue)
+        print(operandStack)
     }
     
-
+    var displayValue: Double {
+        get {
+            return NumberFormatter().number(from: resultLabel.text!)!.doubleValue
+        }
+        set {
+            resultLabel.text = "\(newValue)"
+            isInTheMiddleOfTypingNumber = false
+        }
+    }
+    
+    @IBAction func operate(_ sender: UIButton) {
+        if isInTheMiddleOfTypingNumber {
+            enter()
+        }
+        let operation = sender.currentTitle!
+        switch operation {
+        case "×": performOperation(multiply)
+        case "÷": performOperation(divide)
+        case "＋": performOperation(add)
+        case "－": performOperation(minus)
+        default:
+            break
+        }
+    }
+    
+    func performOperation(_ operation: (Double, Double) -> Double) {
+        if operandStack.count >= 2 {
+            displayValue = operation(operandStack.removeLast(),  operandStack.removeLast())
+            enter()
+        }
+    }
+    
+    func multiply(op1: Double, op2: Double) -> Double {
+       return op1 * op2
+    }
+    func divide(op1: Double, op2: Double) -> Double {
+        return op1 / op2
+    }
+    func add(op1: Double, op2: Double) -> Double {
+        return op1 + op2
+    }
+    func minus(op1: Double, op2: Double) -> Double {
+        return op1 - op2
+    }
 }
-
