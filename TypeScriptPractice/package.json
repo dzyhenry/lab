@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "tslint": "^5.10.0"
+  },
+  "name": "TypeScriptPractice",
+  "version": "0.0.1",
+  "description": "Learning TypeScript from scratch",
+  "main": "index.js",
+  "repository": "https://github.com/dzyhenry/lab.git",
+  "author": "dzyhenry",
+  "license": "MIT"
+}
