@@ -30,7 +30,7 @@ let unuseable: void = null
 // type assertions
 let someValue: any = "This is a string"
 let stringLength: number = (<string>someValue).length
-console.log("stringLenth12 => ", stringLength);
+console.log("stringLenth => ", stringLength);
 
 let stringLength2: number = (someValue as string).length
 console.log("stringLength2 => ", stringLength)
