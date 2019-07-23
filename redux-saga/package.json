@@ -1,0 +1,12 @@
+{
+  "name": "redux-saga-examples",
+  "version": "1.0.0",
+  "description": "To understand redux-saga",
+  "main": "index.js",
+  "repository": "https://github.com/dzyhenry/lab",
+  "author": "dzyhenry",
+  "license": "MIT",
+  "dependencies": {
+    "redux-saga": "^1.0.5"
+  }
+}
